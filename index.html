@@ -11,11 +11,72 @@
     />
     <title>Frontend Mentor | Tip calculator app</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    Bill Select Tip % 5% 10% 15% 25% 50% Custom Number of People Tip Amount /
-    person Total / person Reset
-
+    <main>
+      <div class="logo">
+        <img src="images/logo.svg" alt="logo" />
+      </div>
+      <div class="container">
+        <div class="calculator-container">
+          <div class="bill-container">
+            <h1 class="header">Bill</h1>
+            <div>
+              <img src="images/icon-dollar.svg" alt="dollar-icon" />
+              <label for="bill"></label>
+              <input type="number" name="bill" id="bill" placeholder="0" />
+            </div>
+          </div>
+          <div class="select-tip-container">
+            <h2 class="header">Select Tip %</h2>
+            <div class="grid-container">
+              <button type="button">5%</button>
+              <button type="button">10%</button>
+              <button type="button">15%</button>
+              <button type="button">25%</button>
+              <button type="button">50%</button>
+              <label for="custom-tip"></label>
+              <input
+                type="number"
+                name="custom-tip"
+                id="custom-tip"
+                placeholder="Custom"
+              />
+            </div>
+          </div>
+          <div class="number-of-people-container">
+            <h3 class="header">Number of People</h3>
+            <div>
+              <img src="images/icon-person.svg" alt="person-icon" />
+              <label for="number-of-people"></label>
+              <input
+                type="number"
+                name="number-of-people"
+                id="number-of-people"
+                placeholder="0"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="tip-container">
+          <div class="tip-amount-container">
+            <div class="tip-amount">Tip Amount / person</div>
+            <div class="per-person-value">$0.00</div>
+          </div>
+          <div class="total-container">
+            <div class="total-amount">Total / person</div>
+            <div class="total-value">$0.00</div>
+          </div>
+          <button type="reset">Reset</button>
+        </div>
+      </div>
+    </main>
     <div class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
