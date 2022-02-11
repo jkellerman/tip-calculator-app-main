@@ -3,6 +3,75 @@
   font-family: "Space Mono", monospace;
 }
 
+:root {
+  --Strong-cyan: hsl(172, 67%, 45%);
+  --Very-dark-cyan: hsl(183, 100%, 15%);
+  --Dark-grayish-cyan-1: hsl(186, 14%, 43%);
+  --Dark-grayish-cyan-2: hsl(184, 14%, 56%);
+  --Light-grayish-cyan-1: hsl(185, 41%, 84%);
+  --Light-grayish-cyan-2: hsl(189, 41%, 97%);
+  --White: hsl(0, 0%, 100%);
+}
+
+body {
+  font-size: 24px;
+  background-color: var(--Light-grayish-cyan-1);
+  margin: 0;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2em 0;
+}
+
+.header {
+  font-size: 0.9rem;
+  color: var(--Dark-grayish-cyan-1);
+}
+
+.container {
+  background-color: var(--White);
+  border-radius: 20px;
+  padding: 1em;
+}
+
+.input-container {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  top: 0.6em;
+  left: 0.5em;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+.input {
+  background-color: var(--Light-grayish-cyan-2);
+  border: none;
+  outline: none;
+  text-align: end;
+  padding: 0.25em;
+  padding-right: 0.75em;
+  width: 100%;
+  font-size: inherit;
+  color: var(--Very-dark-cyan);
+  font-weight: 700;
+  margin-bottom: 1em;
+}
+
 .attribution {
   font-size: 11px;
   text-align: center;
