@@ -17,7 +17,7 @@
 body {
   font-size: 24px;
   background-color: var(--Light-grayish-cyan-1);
-  margin: 0;
+  margin: 0 auto;
 }
 
 .logo {
@@ -98,12 +98,14 @@ input[type="number"] {
 
 .button:focus {
   background-color: var(--Strong-cyan);
+  border-color: var(--Strong-cyan);
   color: var(--Very-dark-cyan);
   transition: 0.2s;
 }
 
 .button:hover {
   background-color: var(--hover);
+  border-color: var(--hover);
   color: var(--Very-dark-cyan);
   transition: 0.2s;
 }
@@ -168,7 +170,7 @@ input[type="number"] {
 .reset {
   color: var(--Very-dark-cyan);
   width: 100%;
-  padding: 0.5em;
+  padding: 0.75em;
   font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -189,4 +191,59 @@ input[type="number"] {
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+@media (min-width: 1000px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .container {
+    display: flex;
+    width: 900px;
+    height: 475px;
+    justify-content: space-between;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    gap: 0.5em;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 1.5em;
+  }
+
+  .calculator-container {
+    margin-right: 2em;
+  }
+
+  .tip-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .value {
+    font-size: 3rem;
+  }
+
+  .tip-amount-container,
+  .total-container {
+    align-items: center;
+  }
+
+  .tip-amount::after,
+  .total-amount::after {
+    top: 2em;
+    width: 100px;
+  }
+
+  .tip-amount,
+  .total-amount {
+    transform: translateY(-0.5em);
+  }
 }
