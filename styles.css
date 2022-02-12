@@ -81,7 +81,7 @@ input[type="number"] {
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(2, 145px);
+  grid-template-columns: repeat(2, 50%);
   gap: 0.5em;
   width: 100%;
   justify-content: space-between;
@@ -186,6 +186,7 @@ input[type="number"] {
 }
 
 .attribution {
+  margin-top: 1em;
   font-size: 11px;
   text-align: center;
 }
