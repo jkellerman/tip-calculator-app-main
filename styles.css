@@ -81,11 +81,15 @@ input[type="number"] {
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(2, 50%);
+  grid-template-columns: repeat(2, 47.5%);
   gap: 0.5em;
   width: 100%;
   justify-content: space-between;
   margin-bottom: 1.5em;
+}
+
+.select-tip-container {
+  width: 100%;
 }
 
 .button {
