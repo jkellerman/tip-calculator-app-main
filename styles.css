@@ -248,3 +248,9 @@ input[type="number"] {
     transform: translateY(-0.5em);
   }
 }
+
+@media (max-width: 318px) {
+  .value {
+    font-size: 1rem;
+  }
+}
