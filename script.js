@@ -8,8 +8,10 @@ let totalValue = document.querySelector(".total-value");
 const resetButton = document.querySelector(".reset");
 let buttonClicked = false; // incase we need a variable that states button has been clicked
 let clickedButtonValue = 0; // incase we need a variable that gives us the value of the clicked button
+let perPersonMinusTip = billInput.value / numOfPeopleInput.value;
+let perPersonTip = (customTipInput.value / 100) * perPersonMinusTip;
 
-// active reset button when number is inputted into field and clear inputs when reset button is clicked
+// activate reset button when number is inputted into any input field and clear input fields when reset button is clicked
 
 inputs.forEach((input) => {
   input.addEventListener("input", (e) => {
@@ -37,5 +39,29 @@ inputs.forEach((input) => {
   });
 });
 
-// let a = 10;
-// tipAmountValue.innerText = a.toFixed(2);
+buttons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    customTipInput.value = "";
+    buttonClicked = true;
+    clickedButtonValue = button.innerText;
+    console.log(parseInt(clickedButtonValue));
+  });
+});
+
+function customInput() {
+  if (
+    !billInput.value === 0 &&
+    !numOfPeopleInput.value === 0 &&
+    !customTipInput.value === 0
+  ) {
+    calcuateTipForCustom();
+  }
+}
+
+customInput();
+
+function calcuateTipForCustom() {
+  let total = perPersonMinusTip + perPersonTip;
+  tipAmountValue.innerText = perPersonTip.toFixed(2);
+  totalValue.innerText = total.toFixed(2);
+}
