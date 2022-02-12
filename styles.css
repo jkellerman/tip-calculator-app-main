@@ -11,6 +11,7 @@
   --Light-grayish-cyan-1: hsl(185, 41%, 84%);
   --Light-grayish-cyan-2: hsl(189, 41%, 97%);
   --White: hsl(0, 0%, 100%);
+  --hover: hsl(185, 60%, 80%);
 }
 
 body {
@@ -102,7 +103,7 @@ input[type="number"] {
 }
 
 .button:hover {
-  background-color: hsl(185, 60%, 80%);
+  background-color: var(--hover);
   color: var(--Very-dark-cyan);
   transition: 0.2s;
 }
@@ -135,6 +136,51 @@ input[type="number"] {
 .tip-container {
   background-color: var(--Very-dark-cyan);
   color: var(--White);
+  font-size: 0.9rem;
+  padding: 2em;
+  border-radius: 10px;
+}
+
+.tip-amount-container,
+.total-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 2.5em;
+}
+
+.tip-amount::after,
+.total-amount::after {
+  content: "/ person";
+  opacity: 0.4;
+  position: absolute;
+  top: 2em;
+  left: 0;
+  font-size: 0.75rem;
+}
+
+.value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--Strong-cyan);
+}
+
+.reset {
+  color: var(--Very-dark-cyan);
+  width: 100%;
+  padding: 0.5em;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: var(--Strong-cyan);
+  border: 1px solid var(--Strong-cyan);
+  border-radius: 5px;
+}
+
+.reset:hover {
+  background-color: var(--hover);
+  border-color: var(--hover);
 }
 
 .attribution {
