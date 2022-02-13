@@ -10,19 +10,32 @@ customTipInput.addEventListener("input", calculate);
 numOfPeopleInput.addEventListener("input", calculate);
 
 function calculate() {
-  let billInputValue = parseFloat(document.querySelector("#bill").value);
-  let customTipValue = parseFloat(document.querySelector("#custom-tip").value);
-  let numOfPeopleValue = parseInt(
-    document.querySelector("#number-of-people").value
-  );
-  let totalMinusTip = billInputValue / numOfPeopleValue;
-  let tipPerPerson = totalMinusTip * (customTipValue / 100);
-  let totalPerPerson = totalMinusTip + tipPerPerson;
+  if (
+    billInput.value >= 1 &&
+    customTipInput.value >= 1 &&
+    numOfPeopleInput.value >= 1
+  ) {
+    let billInputValue = parseFloat(document.querySelector("#bill").value);
+    let customTipValue = parseFloat(
+      document.querySelector("#custom-tip").value
+    );
+    let numOfPeopleValue = parseInt(
+      document.querySelector("#number-of-people").value
+    );
+    let totalMinusTip = billInputValue / numOfPeopleValue;
+    let tipPerPerson = totalMinusTip * (customTipValue / 100);
+    let totalPerPerson = totalMinusTip + tipPerPerson;
 
-  let tipValue = document.querySelector(".tip-amount-value");
-  tipValue.innerText = tipPerPerson.toFixed(2);
-  let totalValue = document.querySelector(".total-value");
-  totalValue.innerText = totalPerPerson.toFixed(2);
+    let tipValue = document.querySelector(".tip-amount-value");
+    tipValue.innerText = tipPerPerson.toFixed(2);
+    let totalValue = document.querySelector(".total-value");
+    totalValue.innerText = totalPerPerson.toFixed(2);
+  } else {
+    let tipValue = document.querySelector(".tip-amount-value");
+    tipValue.innerText = parseFloat("0").toFixed(2);
+    let totalValue = document.querySelector(".total-value");
+    totalValue.innerText = parseFloat("0").toFixed(2);
+  }
 }
 
 // activate reset button when number is inputted into any input field and clear input fields when reset button is clicked
