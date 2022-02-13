@@ -1,28 +1,41 @@
 const inputs = document.querySelectorAll("input");
-const billInput = document.querySelector("#bill");
-const numOfPeopleInput = document.querySelector("#number-of-people");
-const customTipInput = document.querySelector("#custom-tip");
-const buttons = document.querySelectorAll(".button");
-let tipAmountValue = document.querySelector(".tip-amount-value");
-let totalValue = document.querySelector(".total-value");
 const resetButton = document.querySelector(".reset");
-let buttonClicked = false; // incase we need a variable that states button has been clicked
-let clickedButtonValue = 0; // incase we need a variable that gives us the value of the clicked button
-let perPersonMinusTip = billInput.value / numOfPeopleInput.value;
-let perPersonTip = (customTipInput.value / 100) * perPersonMinusTip;
+const billInput = document.querySelector("#bill");
+const customTipInput = document.querySelector("#custom-tip");
+const numOfPeopleInput = document.querySelector("#number-of-people");
+
+// Get bill input when input is selected & calculate
+billInput.addEventListener("input", calculate);
+
+function calculate() {
+  let billInputValue = parseFloat(document.querySelector("#bill").value);
+  let customTipValue = parseFloat(document.querySelector("#custom-tip").value);
+  let numOfPeopleValue = parseInt(
+    document.querySelector("#number-of-people").value
+  );
+  let totalMinusTip = billInputValue / numOfPeopleValue;
+  let tipPerPerson = totalMinusTip * (customTipValue / 100);
+  let totalPerPerson = totalMinusTip + tipPerPerson;
+
+  let tipValue = document.querySelector(".tip-amount-value");
+  tipValue.innerText = tipPerPerson.toFixed(2);
+  let totalValue = document.querySelector(".total-value");
+  totalValue.innerText = totalPerPerson.toFixed(2);
+}
 
 // activate reset button when number is inputted into any input field and clear input fields when reset button is clicked
 
 inputs.forEach((input) => {
   input.addEventListener("input", (e) => {
-    let inputValue = parseInt(e.value);
-    if (typeof inputValue === "number") {
+    let inputNumber = parseFloat(e.data);
+    if (typeof inputNumber === "number") {
       resetButton.style.opacity = "1";
       resetButton.style.cursor = "pointer";
 
       resetButton.addEventListener("mouseenter", () => {
         resetButton.style.backgroundColor = "var(--hover)";
         resetButton.style.borderColor = "var(--hover)";
+        resetButton.style.transition = "0.2s ease-in-out";
       });
 
       resetButton.addEventListener("mouseleave", () => {
@@ -34,34 +47,11 @@ inputs.forEach((input) => {
         inputs.forEach((input) => {
           input.value = "";
         });
+        let tipValue = document.querySelector(".tip-amount-value");
+        tipValue.innerText = parseFloat("0").toFixed(2);
+        let totalValue = document.querySelector(".total-value");
+        totalValue.innerText = parseFloat("0").toFixed(2);
       });
     }
   });
 });
-
-buttons.forEach((button) => {
-  button.addEventListener("click", (e) => {
-    customTipInput.value = "";
-    buttonClicked = true;
-    clickedButtonValue = button.innerText;
-    console.log(parseInt(clickedButtonValue));
-  });
-});
-
-function customInput() {
-  if (
-    !billInput.value === 0 &&
-    !numOfPeopleInput.value === 0 &&
-    !customTipInput.value === 0
-  ) {
-    calcuateTipForCustom();
-  }
-}
-
-customInput();
-
-function calcuateTipForCustom() {
-  let total = perPersonMinusTip + perPersonTip;
-  tipAmountValue.innerText = perPersonTip.toFixed(2);
-  totalValue.innerText = total.toFixed(2);
-}

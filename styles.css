@@ -59,6 +59,10 @@ input[type="number"] {
   -moz-appearance: textfield; /* Firefox */
 }
 
+label {
+  display: none;
+}
+
 .input {
   background-color: var(--Light-grayish-cyan-2);
   border: 2px solid var(--Light-grayish-cyan-2);
@@ -99,13 +103,6 @@ input[type="number"] {
   color: var(--White);
   font-weight: 700;
   cursor: pointer;
-}
-
-.button:focus {
-  background-color: var(--Strong-cyan);
-  border-color: var(--Strong-cyan);
-  color: var(--Very-dark-cyan);
-  transition: 0.2s ease-in-out;
 }
 
 .button:hover {
