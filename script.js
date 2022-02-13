@@ -6,6 +6,8 @@ const numOfPeopleInput = document.querySelector("#number-of-people");
 
 // Get bill input when input is selected & calculate
 billInput.addEventListener("input", calculate);
+customTipInput.addEventListener("input", calculate);
+numOfPeopleInput.addEventListener("input", calculate);
 
 function calculate() {
   let billInputValue = parseFloat(document.querySelector("#bill").value);
