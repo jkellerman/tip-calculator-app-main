@@ -17,9 +17,15 @@ buttons.forEach((button) => {
   });
 });
 
-// Get bill input when input is selected & calculate
 billInput.addEventListener("input", customCalculate);
-customTipInput.addEventListener("input", customCalculate);
+customTipInput.addEventListener("input", () => {
+  if (customTipInput.value >= 1) {
+    buttons.forEach((button) => {
+      button.classList.remove("active");
+    });
+  }
+  customCalculate();
+});
 numOfPeopleInput.addEventListener("input", customCalculate);
 
 function calculate(tipPercent) {
