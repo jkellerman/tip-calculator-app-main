@@ -163,6 +163,7 @@ label {
   font-size: 0.9rem;
   padding: 2em;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 .tip-amount-container,
@@ -171,6 +172,11 @@ label {
   justify-content: space-between;
   position: relative;
   margin-bottom: 2.5em;
+}
+
+.tip-amount,
+.total-amount {
+  min-width: 88.133px;
 }
 
 .tip-amount::after,
