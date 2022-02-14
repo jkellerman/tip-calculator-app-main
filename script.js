@@ -66,13 +66,12 @@ customTipInput.addEventListener("input", () => {
 
 buttons.forEach((button) => {
   button.addEventListener("mousedown", () => {
-    let buttonValue = parseInt(button.innerText);
     customTipInput.value = "";
     buttons.forEach((button) => {
       button.classList.remove("active");
     });
     button.classList.add("active");
-    calculate(buttonValue);
+    buttonCalculate();
   });
 });
 
@@ -82,32 +81,6 @@ billInput.addEventListener("input", buttonCalculate);
 numOfPeopleInput.addEventListener("input", buttonCalculate);
 
 // functions
-
-function buttonCalculate() {
-  let activeButton = document.querySelector(".active");
-  let billInputValue = parseFloat(document.querySelector("#bill").value);
-  let numOfPeopleValue = parseInt(
-    document.querySelector("#number-of-people").value
-  );
-
-  if (
-    billInput.value >= 1 &&
-    numOfPeopleInput.value >= 1 &&
-    activeButton.classList.contains("active")
-  ) {
-    let activeButtonValue = parseInt(activeButton.innerText);
-    let totalMinusTip = billInputValue / numOfPeopleValue;
-    let tipPerPerson = totalMinusTip * (activeButtonValue / 100);
-    let totalPerPerson = totalMinusTip + tipPerPerson;
-
-    let tipValue = document.querySelector(".tip-amount-value");
-    tipValue.innerText = tipPerPerson.toFixed(2);
-    let totalValue = document.querySelector(".total-value");
-    totalValue.innerText = totalPerPerson.toFixed(2);
-  } else {
-    removeAmounts();
-  }
-}
 
 function customCalculate() {
   if (
@@ -135,14 +108,17 @@ function customCalculate() {
   }
 }
 
-function calculate(tipPercent) {
+function buttonCalculate() {
+  let activeButton = document.querySelector(".active");
+  let billInputValue = parseFloat(document.querySelector("#bill").value);
+  let numOfPeopleValue = parseInt(
+    document.querySelector("#number-of-people").value
+  );
+
   if (billInput.value >= 1 && numOfPeopleInput.value >= 1) {
-    let billInputValue = parseFloat(document.querySelector("#bill").value);
-    let numOfPeopleValue = parseInt(
-      document.querySelector("#number-of-people").value
-    );
+    let activeButtonValue = parseInt(activeButton.innerText);
     let totalMinusTip = billInputValue / numOfPeopleValue;
-    let tipPerPerson = totalMinusTip * (tipPercent / 100);
+    let tipPerPerson = totalMinusTip * (activeButtonValue / 100);
     let totalPerPerson = totalMinusTip + tipPerPerson;
 
     let tipValue = document.querySelector(".tip-amount-value");
