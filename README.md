@@ -52,7 +52,7 @@ Users should be able to:
 
 One of the key things I learned from this task was how to get a string from an element and convert it to a float or integer.
 
-I also learned how to set a maximum amount of characters into an input fiel using JS. See snippet below.
+I also learned how to set a maximum amount of characters into an input field using JS. See snippet below.
 
 ```js
 function limit(element) {
@@ -65,7 +65,7 @@ function limit(element) {
 
 ### Continued development
 
-I would like to make my code cleaner, shorter & more concise. I would also like to try and make a normal calculator.
+Create a normal calculator.
 
 ### Useful resources
 
