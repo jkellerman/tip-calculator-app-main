@@ -74,4 +74,4 @@ I would like to make my code cleaner, shorter & more concise. I would also like 
 
 ## Author
 
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/jkellerman)
+- Frontend Mentor - [@jkellerman](https://www.frontendmentor.io/profile/jkellerman)
