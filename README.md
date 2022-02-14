@@ -69,8 +69,8 @@ Create a normal calculator.
 
 ### Useful resources
 
-- [Stack Overflow](https://stackoverflow.com/questions/9841363/how-to-restrict-number-of-characters-that-can-be-entered-in-html5-number-input-f) - This helped me use JS to limit the amount of characters can be entered into an input field.
-- [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat) - This helped me understand how to convert a strong into a float or an integer using parseInt.
+- [Stack Overflow](https://stackoverflow.com/questions/9841363/how-to-restrict-number-of-characters-that-can-be-entered-in-html5-number-input-f) - This helped me use JS to limit the amount of characters that can be entered into an input field.
+- [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat) - This helped me understand how to convert a string into a float.
 
 ## Author
 
