@@ -46,6 +46,7 @@ inputs.forEach((input) => {
         numOfPeopleInput.style.borderColor = null;
       });
     }
+    limit(input);
   });
 });
 
@@ -64,6 +65,8 @@ customTipInput.addEventListener("input", () => {
 
 // add event listeners for buttons which perform calculation when they are selected
 
+billInput.addEventListener("input", buttonCalculate);
+numOfPeopleInput.addEventListener("input", buttonCalculate);
 buttons.forEach((button) => {
   button.addEventListener("mousedown", () => {
     customTipInput.value = "";
@@ -74,11 +77,6 @@ buttons.forEach((button) => {
     buttonCalculate();
   });
 });
-
-// add event listeners for inputs which perform calculations when buttons are selected
-
-billInput.addEventListener("input", buttonCalculate);
-numOfPeopleInput.addEventListener("input", buttonCalculate);
 
 // functions
 
@@ -137,6 +135,15 @@ function removeAmounts() {
   tipValue.innerText = parseFloat("0").toFixed(2);
   let totalValue = document.querySelector(".total-value");
   totalValue.innerText = parseFloat("0").toFixed(2);
+}
+
+// limit characters entered into input
+
+function limit(element) {
+  let max_chars = 8;
+  if (element.value.length > max_chars) {
+    element.value = element.value.substring(0, max_chars);
+  }
 }
 
 // event listeners for when enter button is pressed and not all input fields have been filled
