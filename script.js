@@ -40,6 +40,10 @@ inputs.forEach((input) => {
         buttons.forEach((button) => {
           button.classList.remove("active");
         });
+        errorbill.innerText = null;
+        errorPeople.innerText = null;
+        billInput.style.borderColor = null;
+        numOfPeopleInput.style.borderColor = null;
       });
     }
   });
