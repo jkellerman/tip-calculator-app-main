@@ -30,10 +30,10 @@ inputs.forEach((input) => {
         inputs.forEach((input) => {
           input.value = "";
         });
-        let tipValue = document.querySelector(".tip-amount-value");
-        tipValue.innerText = parseFloat("0").toFixed(2);
-        let totalValue = document.querySelector(".total-value");
-        totalValue.innerText = parseFloat("0").toFixed(2);
+        removeAmounts();
+        buttons.forEach((button) => {
+          button.classList.remove("active");
+        });
       });
     }
   });
@@ -93,10 +93,7 @@ function buttonCalculate() {
     let totalValue = document.querySelector(".total-value");
     totalValue.innerText = totalPerPerson.toFixed(2);
   } else {
-    let tipValue = document.querySelector(".tip-amount-value");
-    tipValue.innerText = parseFloat("0").toFixed(2);
-    let totalValue = document.querySelector(".total-value");
-    totalValue.innerText = parseFloat("0").toFixed(2);
+    removeAmounts();
   }
 }
 
@@ -122,10 +119,7 @@ function customCalculate() {
     let totalValue = document.querySelector(".total-value");
     totalValue.innerText = totalPerPerson.toFixed(2);
   } else {
-    let tipValue = document.querySelector(".tip-amount-value");
-    tipValue.innerText = parseFloat("0").toFixed(2);
-    let totalValue = document.querySelector(".total-value");
-    totalValue.innerText = parseFloat("0").toFixed(2);
+    removeAmounts();
   }
 }
 
@@ -144,9 +138,13 @@ function calculate(tipPercent) {
     let totalValue = document.querySelector(".total-value");
     totalValue.innerText = totalPerPerson.toFixed(2);
   } else {
-    let tipValue = document.querySelector(".tip-amount-value");
-    tipValue.innerText = parseFloat("0").toFixed(2);
-    let totalValue = document.querySelector(".total-value");
-    totalValue.innerText = parseFloat("0").toFixed(2);
+    removeAmounts();
   }
+}
+
+function removeAmounts() {
+  let tipValue = document.querySelector(".tip-amount-value");
+  tipValue.innerText = parseFloat("0").toFixed(2);
+  let totalValue = document.querySelector(".total-value");
+  totalValue.innerText = parseFloat("0").toFixed(2);
 }
