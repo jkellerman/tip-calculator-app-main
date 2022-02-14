@@ -12,6 +12,7 @@
   --Light-grayish-cyan-2: hsl(189, 41%, 97%);
   --White: hsl(0, 0%, 100%);
   --hover: hsl(185, 60%, 80%);
+  --error: rgb(230, 102, 59);
 }
 
 body {
@@ -27,9 +28,22 @@ body {
   margin: 2em 0;
 }
 
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .header {
   font-size: 0.9rem;
   color: var(--Dark-grayish-cyan-1);
+}
+
+.error-message {
+  /* display: none; */
+  font-size: 1rem;
+  color: var(--error);
+  font-weight: 600;
 }
 
 .container {

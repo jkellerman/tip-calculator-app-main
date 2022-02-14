@@ -4,10 +4,16 @@ const billInput = document.querySelector("#bill");
 const customTipInput = document.querySelector("#custom-tip");
 const numOfPeopleInput = document.querySelector("#number-of-people");
 const buttons = document.querySelectorAll(".button");
+const errorbill = document.querySelector(".error-bill");
+const errorPeople = document.querySelector(".error-people");
 
 // activate reset button when number is inputted into any input field and clear input fields when reset button is clicked
+
 inputs.forEach((input) => {
   input.addEventListener("input", (e) => {
+    input.style.borderColor = null; // turns border color back to normal after error message
+    errorbill.innerText = null; // removes any error messages
+    errorPeople.innerText = null; // removes any error messages
     let inputNumber = parseFloat(e.data);
     if (typeof inputNumber === "number") {
       resetButton.style.opacity = "1";
@@ -70,6 +76,8 @@ buttons.forEach((button) => {
 
 billInput.addEventListener("input", buttonCalculate);
 numOfPeopleInput.addEventListener("input", buttonCalculate);
+
+// functions
 
 function buttonCalculate() {
   let activeButton = document.querySelector(".active");
@@ -142,9 +150,27 @@ function calculate(tipPercent) {
   }
 }
 
+// Remove total amounts
+
 function removeAmounts() {
   let tipValue = document.querySelector(".tip-amount-value");
   tipValue.innerText = parseFloat("0").toFixed(2);
   let totalValue = document.querySelector(".total-value");
   totalValue.innerText = parseFloat("0").toFixed(2);
 }
+
+// event listeners for when enter button is pressed and not all input fields have been filled
+
+window.addEventListener("keyup", (e) => {
+  if (e.key === "Enter" && billInput.value === "") {
+    billInput.style.borderColor = "var(--error)";
+    errorbill.innerText = "Can't be zero";
+  }
+});
+
+window.addEventListener("keyup", (e) => {
+  if (e.key === "Enter" && numOfPeopleInput.value === "") {
+    numOfPeopleInput.style.borderColor = "var(--error)";
+    errorPeople.innerText = "Can't be zero";
+  }
+});
