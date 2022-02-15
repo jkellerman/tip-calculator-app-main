@@ -21,6 +21,10 @@ body {
   margin: 0 auto;
 }
 
+main {
+  min-height: calc(100vh - 15px);
+}
+
 .logo {
   display: flex;
   justify-content: center;
