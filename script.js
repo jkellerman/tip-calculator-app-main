@@ -14,7 +14,7 @@ inputs.forEach((input) => {
     input.style.borderColor = null; // turns border color back to normal after error message
     errorbill.innerText = null; // removes any error messages
     errorPeople.innerText = null; // removes any error messages
-    let inputNumber = parseFloat(e.data);
+    const inputNumber = parseFloat(e.data);
     if (typeof inputNumber === "number") {
       resetButton.style.opacity = "1";
       resetButton.style.cursor = "pointer";
@@ -86,20 +86,20 @@ function customCalculate() {
     customTipInput.value >= 1 &&
     numOfPeopleInput.value >= 1
   ) {
-    let billInputValue = parseFloat(document.querySelector("#bill").value);
-    let customTipValue = parseFloat(
+    const billInputValue = parseFloat(document.querySelector("#bill").value);
+    const customTipValue = parseFloat(
       document.querySelector("#custom-tip").value
     );
-    let numOfPeopleValue = parseInt(
+    const numOfPeopleValue = parseInt(
       document.querySelector("#number-of-people").value
     );
-    let totalMinusTip = billInputValue / numOfPeopleValue;
-    let tipPerPerson = totalMinusTip * (customTipValue / 100);
-    let totalPerPerson = totalMinusTip + tipPerPerson;
+    const totalMinusTip = billInputValue / numOfPeopleValue;
+    const tipPerPerson = totalMinusTip * (customTipValue / 100);
+    const totalPerPerson = totalMinusTip + tipPerPerson;
 
-    let tipValue = document.querySelector(".tip-amount-value");
+    const tipValue = document.querySelector(".tip-amount-value");
     tipValue.innerText = tipPerPerson.toFixed(2);
-    let totalValue = document.querySelector(".total-value");
+    const totalValue = document.querySelector(".total-value");
     totalValue.innerText = totalPerPerson.toFixed(2);
   } else {
     removeAmounts();
@@ -107,21 +107,21 @@ function customCalculate() {
 }
 
 function buttonCalculate() {
-  let activeButton = document.querySelector(".active");
-  let billInputValue = parseFloat(document.querySelector("#bill").value);
-  let numOfPeopleValue = parseInt(
+  const activeButton = document.querySelector(".active");
+  const billInputValue = parseFloat(document.querySelector("#bill").value);
+  const numOfPeopleValue = parseInt(
     document.querySelector("#number-of-people").value
   );
 
   if (billInput.value >= 1 && numOfPeopleInput.value >= 1) {
-    let activeButtonValue = parseInt(activeButton.innerText);
-    let totalMinusTip = billInputValue / numOfPeopleValue;
-    let tipPerPerson = totalMinusTip * (activeButtonValue / 100);
-    let totalPerPerson = totalMinusTip + tipPerPerson;
+    const activeButtonValue = parseInt(activeButton.innerText);
+    const totalMinusTip = billInputValue / numOfPeopleValue;
+    const tipPerPerson = totalMinusTip * (activeButtonValue / 100);
+    const totalPerPerson = totalMinusTip + tipPerPerson;
 
-    let tipValue = document.querySelector(".tip-amount-value");
+    const tipValue = document.querySelector(".tip-amount-value");
     tipValue.innerText = tipPerPerson.toFixed(2);
-    let totalValue = document.querySelector(".total-value");
+    const totalValue = document.querySelector(".total-value");
     totalValue.innerText = totalPerPerson.toFixed(2);
   } else {
     removeAmounts();
@@ -131,16 +131,16 @@ function buttonCalculate() {
 // Remove total amounts
 
 function removeAmounts() {
-  let tipValue = document.querySelector(".tip-amount-value");
+  const tipValue = document.querySelector(".tip-amount-value");
   tipValue.innerText = parseFloat("0").toFixed(2);
-  let totalValue = document.querySelector(".total-value");
+  const totalValue = document.querySelector(".total-value");
   totalValue.innerText = parseFloat("0").toFixed(2);
 }
 
 // limit characters entered into input
 
 function limit(element) {
-  let max_chars = 8;
+  const max_chars = 8;
   if (element.value.length > max_chars) {
     element.value = element.value.substring(0, max_chars);
   }
